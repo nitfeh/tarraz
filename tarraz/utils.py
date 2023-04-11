@@ -7,12 +7,12 @@ from typing import TYPE_CHECKING, List
 
 from PIL import Image, ImageColor
 
-from logger import logger
-from models import ImageSize, RGB
+from tarraz.logger import logger
+from tarraz.models import ImageSize, RGB
 
 if TYPE_CHECKING:
-    from models import Coordinate, RGBImage
     from PIL.Image import Image as ImageType
+    from tarraz.models import Coordinate, RGBImage
 
 
 parser = argparse.ArgumentParser(

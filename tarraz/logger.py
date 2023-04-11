@@ -4,8 +4,6 @@ import logging
 
 class JsonFormatter(logging.Formatter):
     def format(self, record):
-        # TODO: remove this
-        return f"{record.levelname}\t {record.getMessage()}"
         log_record = {
             "timestamp": self.formatTime(record),
             "message": record.getMessage(),

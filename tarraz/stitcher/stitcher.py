@@ -2,12 +2,12 @@ import os
 from abc import ABC
 from typing import TYPE_CHECKING, Optional, List
 
-import constants
-from logger import logger
-from models import Coordinate
+from tarraz import constants
+from tarraz.logger import logger
+from tarraz.models import Coordinate
 
 if TYPE_CHECKING:
-    from models import Color, ImageSize, Palette, PaletteImage, RGB
+    from tarraz.models import Color, ImageSize, Palette, PaletteImage, RGB
 
 
 class Stitcher(ABC):
