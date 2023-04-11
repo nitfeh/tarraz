@@ -1,13 +1,19 @@
 from PIL import Image
 from typing import List, TYPE_CHECKING, Union
 
-from logger import logger
-from models import Color, Coordinate, ImageSize, RGB
-from utils import generate_image, get_neighbours, index_of
+from tarraz.logger import logger
+from tarraz.models import Color, Coordinate, ImageSize, RGB
+from tarraz.utils import generate_image, get_neighbours, index_of
 
 if TYPE_CHECKING:
-    from models import Palette, PaletteImage, PaletteImageRow, RGBImage, RGBImageRow
-    from providers import ColorProvider
+    from tarraz.models import (
+        Palette,
+        PaletteImage,
+        PaletteImageRow,
+        RGBImage,
+        RGBImageRow,
+    )
+    from tarraz.providers import ColorProvider
 
 
 class Tarraz(object):

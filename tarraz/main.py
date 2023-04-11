@@ -1,13 +1,13 @@
 import os
 import argparse
 
-import version
-import constants
-from logger import logger
-from processor import Tarraz
-from providers import DMCProvider
-from stitcher import DisplayStitcher, SVGStitcher
-from utils import parser, file_choices, color_choices
+from tarraz import version
+from tarraz import constants
+from tarraz.logger import logger
+from tarraz.processor import Tarraz
+from tarraz.providers import DMCProvider
+from tarraz.stitcher import DisplayStitcher, SVGStitcher
+from tarraz.utils import parser, file_choices, color_choices
 
 
 def init_argparse() -> argparse.ArgumentParser:
@@ -139,4 +139,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    exit(main())

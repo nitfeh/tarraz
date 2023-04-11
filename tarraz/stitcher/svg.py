@@ -1,13 +1,19 @@
 import os
-
-from logger import logger
-from models import Color, Coordinate
 from typing import TYPE_CHECKING, Optional, List
 
-from stitcher import Stitcher
+from tarraz.logger import logger
+from tarraz.models import Color, Coordinate
+from tarraz.stitcher import Stitcher
 
 if TYPE_CHECKING:
-    from models import ImageSize, Palette, PaletteImage, RGB, StrokeType, SVGAttributes
+    from tarraz.models import (
+        ImageSize,
+        Palette,
+        PaletteImage,
+        RGB,
+        StrokeType,
+        SVGAttributes,
+    )
 
 
 class SVGStitcher(Stitcher):

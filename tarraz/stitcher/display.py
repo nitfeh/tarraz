@@ -1,10 +1,10 @@
 from typing import TYPE_CHECKING, Optional
 
 from PIL import Image
-from stitcher import Stitcher
+from tarraz.stitcher import Stitcher
 
 if TYPE_CHECKING:
-    from models import Color, Coordinate
+    from tarraz.models import Color, Coordinate
 
 
 class DisplayStitcher(Stitcher):

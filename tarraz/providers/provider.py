@@ -1,11 +1,10 @@
 import json
-import time
 from abc import ABC
 from typing import List, Optional
 
-from logger import logger
-from models import Color, RGB
-from utils import euclidean_distance
+from tarraz.logger import logger
+from tarraz.models import Color, RGB
+from tarraz.utils import euclidean_distance
 
 
 class ColorProvider(ABC):
