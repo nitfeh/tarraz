@@ -106,7 +106,7 @@ def main() -> None:
     provider = DMCProvider(args.dmc)
     tarraz = Tarraz(
         args.image,
-        provider,
+        provider=provider,
         x_count=args.stitches_count,
         colors_num=args.colors,
         result_width=args.width,

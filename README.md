@@ -29,17 +29,53 @@ Photo by [Kiki Siepel](https://unsplash.com/@studiokiek?utm_source=unsplash&utm_
 pip install tarraz
 ```
 
-### Example
+### CLI Example
+```shell
+tarraz .tmp/palestinian_flag.jpg --colors 6 --stitches-count 100
 ```
-python tarraz/main.py .tmp/palestinian_flag.jpg --colors 6 --stitches-count 100
+
+### Python Example
+```python
+from tarraz import constants
+from tarraz.processor import Tarraz
+from tarraz.providers import DMCProvider
+from tarraz.stitcher import SVGStitcher
+from tarraz.models import RGB
+
+
+# Choose a color provider
+image_path = ".tmp/flower.jpg"
+provider = DMCProvider()
+
+tarraz = Tarraz(
+    image_path,
+    provider=provider,  # Optional if not using a custom provider
+    x_count=100,        # Default 50
+    colors_num=6,       # default 3
+    result_width=200,   # Default 1000
+    cleanup=True,       # Default True
+)
+
+# Process the image
+pattern, colors = tarraz.process()
+
+# Stitch the result
+SVGStitcher.stitch(
+    pattern,
+    colors,
+    tarraz.size,
+    transparent=[RGB(255,255,255)],
+    configs=constants.SVG_VARIANTS,
+    cell_size=10,
+    save_to="/tmp/test/",
+)
+
 ```
 
 ### Options
-```
-python tarraz/main.py --help
-usage: main.py [-h] [-v] [-c COLORS] [-n STITCHES_COUNT] [-w WIDTH] [-m DMC] [-t TRANSPARENT [TRANSPARENT ...]]
-               [-s DIST] [-z CELL_SIZE] [--no-cleanup] [--svg]
-               image
+```shell
+$ tarraz --help
+usage: tarraz [-h] [-v] [-c COLORS] [-n STITCHES_COUNT] [-w WIDTH] [-m DMC] [-t TRANSPARENT [TRANSPARENT ...]] [-s DIST] [-z CELL_SIZE] [--no-cleanup] [--svg] image
 
 Generate a DMC-colored cross-stitch pattern from a given image.
 
@@ -65,3 +101,10 @@ optional arguments:
   --svg                 Export result to svg files.
 ```
  
+
+## Development
+make sure to add the project to your `PYTHONPATH`
+
+```shell
+$ export PYTHONPATH="${PYTHONPATH}:/path/to/tarraz"
+```

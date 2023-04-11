@@ -3,6 +3,7 @@ from typing import List, TYPE_CHECKING, Union
 
 from tarraz.logger import logger
 from tarraz.models import Color, Coordinate, ImageSize, RGB
+from tarraz.providers import DMCProvider
 from tarraz.utils import generate_image, get_neighbours, index_of
 
 if TYPE_CHECKING:
@@ -20,7 +21,7 @@ class Tarraz(object):
     def __init__(
         self,
         image_path: str,
-        provider: "ColorProvider",
+        provider: "ColorProvider" = DMCProvider(),
         cleanup: bool = True,
         colors_num: int = 3,
         result_width: int = 1000,
