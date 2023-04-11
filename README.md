@@ -13,20 +13,14 @@ Takes an image file and generates a cross stitch pattern using a user specified 
 1. DMC
 
 ## Results
-![Original](./images/flower.jpg)
-Photo by <a href="https://unsplash.com/@studiokiek?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kiki Siepel</a> on <a href="https://unsplash.com/images/nature/flower?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
-### Colored with Symbols
-![Colored with Symbols](./images/colored_symbols.jpg)
+Photo by [Kiki Siepel](https://unsplash.com/@studiokiek?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/images/nature/flower?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+<img src="https://github.com/nitfe/tarraz/raw/v0.0.1/images/flower.jpg" alt="Alt text" style="display: inline-block; margin: 0 auto; max-width: 600px"/>
 
-### Black White with Symbols
-![Black White with Symbols](./images/black_white_symbols.jpg)
-
-### Colored
-![Colored](./images/colored.jpg)
-
-### Keys
-![Keys](./images/key.jpg)
+<img src="https://github.com/nitfe/tarraz/raw/v0.0.1/images/colored_symbols.jpg" alt="Colored with Symbols" style="display: inline-block; margin: 0 auto; max-width: 300px"/>
+<img src="https://github.com/nitfe/tarraz/raw/v0.0.1/images/black_white_symbols.jpg" alt="Black White with Symbols" style="display: inline-block; margin: 0 auto; max-width: 300px"/>
+<img src="https://github.com/nitfe/tarraz/raw/v0.0.1/images/colored.jpg" alt="Colored" style="display: inline-block; margin: 0 auto; max-width: 300px"/>
+<img src="https://github.com/nitfe/tarraz/raw/v0.0.1/images/key.jpg" alt="Keys" style="display: inline-block; margin: 0 auto; max-width: 300px; height: 256px"/>
 
 
 ## Usage
