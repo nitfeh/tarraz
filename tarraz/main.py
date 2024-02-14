@@ -1,13 +1,15 @@
-import os
 import argparse
+import importlib.metadata
+import os
 
-from tarraz import version
 from tarraz import constants
 from tarraz.logger import logger
 from tarraz.processor import Tarraz
 from tarraz.providers import DMCProvider
 from tarraz.stitcher import DisplayStitcher, SVGStitcher
-from tarraz.utils import parser, file_choices, color_choices
+from tarraz.utils import color_choices, file_choices, parser
+
+VERSION = importlib.metadata.version("tarraz")
 
 
 def init_argparse() -> argparse.ArgumentParser:
@@ -15,7 +17,7 @@ def init_argparse() -> argparse.ArgumentParser:
         "-v",
         "--version",
         action="version",
-        version=f"{parser.prog} version {version.__version__}",
+        version=f"{parser.prog} version {VERSION}",
     )
     parser.add_argument(
         "image",
@@ -47,7 +49,6 @@ def init_argparse() -> argparse.ArgumentParser:
         "-m",
         "--dmc",
         type=lambda f: file_choices(constants.COLORS_EXTENSIONS, f),
-        default="tarraz/assets/dmc.json",
         help="DMC json color path.",
     )
     parser.add_argument(
@@ -62,7 +63,7 @@ def init_argparse() -> argparse.ArgumentParser:
         "--dist",
         type=str,
         default=constants.BASE_DIR / ".tmp/",
-        help="DMC json color path.",
+        help="Output destination directory.",
     )
     parser.add_argument(
         "-z",
@@ -103,7 +104,7 @@ def main() -> None:
     if args.transparent:
         logger.info("Transparent colors: %s", args.transparent)
 
-    provider = DMCProvider(args.dmc)
+    provider = DMCProvider(data_path=args.dmc)
     tarraz = Tarraz(
         args.image,
         provider=provider,
