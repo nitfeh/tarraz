@@ -1,9 +1,8 @@
-from typing import Optional, List, TYPE_CHECKING
+from typing import List, Optional
 
-from .provider import ColorProvider
-
-if TYPE_CHECKING:
-    from tarraz.models import Color
+from tarraz.colors import DMC_COLORS
+from tarraz.models import Color
+from tarraz.providers import ColorProvider
 
 
 class DMCProvider(ColorProvider):
@@ -13,6 +12,6 @@ class DMCProvider(ColorProvider):
         colors: Optional[List["Color"]] = None,
     ) -> None:
         if not data_path and not colors:
-            data_path = "tarraz/assets/dmc.json"
+            colors = Color.create(DMC_COLORS)
 
         super().__init__(data_path=data_path, colors=colors)

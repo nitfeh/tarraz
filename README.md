@@ -35,6 +35,7 @@ tarraz .tmp/palestinian_flag.jpg --colors 6 --stitches-count 100
 ```
 
 ### Python Example
+
 ```python
 from tarraz import constants
 from tarraz.processor import Tarraz
@@ -100,11 +101,29 @@ optional arguments:
   --no-cleanup          Don't run cleanup job on generated image.
   --svg                 Export result to svg files.
 ```
- 
+
 
 ## Development
-make sure to add the project to your `PYTHONPATH`
-
+## Pre-requisites
 ```shell
-$ export PYTHONPATH="${PYTHONPATH}:/path/to/tarraz"
+pip3 install -U pip setuptools
+pip3 install poetry
+
+
+# Optional Auto-completion
+poetry completions zsh > ~/.zfunc/_poetry
 ```
+### Install dependencies
+```shell
+poetry shell
+poetry install
+pre-commit install
+```
+
+> [!NOTE]
+> If you don't want to keep the current package installed run
+> `pip uninstall tarraz`. However, you might want to add the project
+> to your `PYTHONPATH` using `export PYTHONPATH="${PYTHONPATH}:/path/to/tarraz"`
+
+### Usage
+Continue usage as listed above
