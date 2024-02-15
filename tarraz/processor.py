@@ -1,8 +1,9 @@
+from typing import TYPE_CHECKING, List, Union
+
 from PIL import Image
-from typing import List, TYPE_CHECKING, Union
 
 from tarraz.logger import logger
-from tarraz.models import Color, Coordinate, ImageSize, RGB
+from tarraz.models import RGB, Color, Coordinate, ImageSize
 from tarraz.providers import DMCProvider
 from tarraz.utils import generate_image, get_neighbours, index_of
 
@@ -31,7 +32,7 @@ class Tarraz(object):
 
         self._cleanup = cleanup
         self._colors_num = colors_num
-        self._image = Image.open(image_path)
+        self._image = Image.open(image_path).convert("RGB")
         self._provider = provider
         self._x_count = x_count
 

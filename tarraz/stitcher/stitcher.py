@@ -1,13 +1,13 @@
 import os
 from abc import ABC
-from typing import TYPE_CHECKING, Optional, List
+from typing import TYPE_CHECKING, List, Optional
 
 from tarraz import constants
 from tarraz.logger import logger
 from tarraz.models import Coordinate
 
 if TYPE_CHECKING:
-    from tarraz.models import Color, ImageSize, Palette, PaletteImage, RGB
+    from tarraz.models import RGB, Color, ImageSize, Palette, PaletteImage
 
 
 class Stitcher(ABC):
@@ -56,7 +56,7 @@ class Stitcher(ABC):
         return NotImplemented
 
     def draw_cell(
-        self, color: "Optional[Color]", coordinate: "Coordinate", size: int
+        self, coordinate: "Coordinate", size: int, color: "Optional[Color]" = None
     ) -> NotImplemented:
         return NotImplemented
 
@@ -69,6 +69,9 @@ class Stitcher(ABC):
         config: "Optional[dict]" = None,
         transparent: "Optional[List[RGB]]" = None,
     ):
+        if not transparent:
+            transparent = []
+
         x = y = cell_size
         for row in pattern:
             for color_i in row:
@@ -76,7 +79,7 @@ class Stitcher(ABC):
                 color = (
                     colors[color_i] if colors[color_i].rgb not in transparent else None
                 )
-                self.draw_cell(color, coordinate, cell_size)
+                self.draw_cell(coordinate, cell_size, color=color)
                 x += cell_size
             y += cell_size
             x = cell_size
@@ -103,6 +106,9 @@ class Stitcher(ABC):
         logger.info("Stitching job started...")
         width = size.width * cell_size
         height = size.height * cell_size
+
+        if not transparent:
+            transparent = []
 
         if not configs:
             configs = [{"name": "NO_CONFIG"}]
