@@ -14,12 +14,12 @@ Takes an image file and generates a cross stitch pattern using a user specified 
 
 ## Results
 
-<img src="https://github.com/nitfe/tarraz/raw/v1.1.3/images/palestine.png" alt="Palestinian Flag" style="display: inline-block; margin: 0 auto; max-width: 600px"/>
+<img src="https://github.com/nitfe/tarraz/raw/v1.2.0/images/palestine.png" alt="Palestinian Flag" style="display: inline-block; margin: 0 auto; max-width: 600px"/>
 
-<img src="https://github.com/nitfe/tarraz/raw/v1.1.3/images/results/colored_symbols.jpg" alt="Colored with Symbols" style="display: inline-block; margin: 0 auto; max-width: 300px"/>
-<img src="https://github.com/nitfe/tarraz/raw/v0.0.1/images/results/black_white_symbols.jpg" alt="Black White with Symbols" style="display: inline-block; margin: 0 auto; max-width: 300px"/>
-<img src="https://github.com/nitfe/tarraz/raw/v0.0.1/images/results/colored.jpg" alt="Colored" style="display: inline-block; margin: 0 auto; max-width: 300px"/>
-<img src="https://github.com/nitfe/tarraz/raw/v0.0.1/images/results/key.jpg" alt="Keys" style="display: inline-block; margin: 0 auto; max-width: 300px; height: 256px"/>
+<img src="https://github.com/nitfe/tarraz/raw/v1.2.0/images/results/colored_symbols.jpg" alt="Colored with Symbols" style="display: inline-block; margin: 0 auto; max-width: 300px"/>
+<img src="https://github.com/nitfe/tarraz/raw/v1.2.0/images/results/black_white_symbols.jpg" alt="Black White with Symbols" style="display: inline-block; margin: 0 auto; max-width: 300px"/>
+<img src="https://github.com/nitfe/tarraz/raw/v1.2.0/images/results/colored.jpg" alt="Colored" style="display: inline-block; margin: 0 auto; max-width: 300px"/>
+<img src="https://github.com/nitfe/tarraz/raw/v1.2.0/images/results/key.jpg" alt="Keys" style="display: inline-block; margin: 0 auto; max-width: 300px; height: 256px"/>
 
 
 ## Usage
