@@ -1,5 +1,5 @@
 import os
-from typing import TYPE_CHECKING, Optional, List
+from typing import TYPE_CHECKING, List, Optional
 
 from tarraz.logger import logger
 from tarraz.models import Color, Coordinate
@@ -7,10 +7,10 @@ from tarraz.stitcher import Stitcher
 
 if TYPE_CHECKING:
     from tarraz.models import (
+        RGB,
         ImageSize,
         Palette,
         PaletteImage,
-        RGB,
         StrokeType,
         SVGAttributes,
     )
@@ -77,9 +77,9 @@ class SVGStitcher(Stitcher):
             keyed.add(color.code)
 
     def draw_cell(
-        self, color: "Optional[Color]", coordinate: "Coordinate", size: int
+        self, coordinate: "Coordinate", size: int, color: "Optional[Color]" = None
     ) -> None:
-        fill, symbols, stroke = self._get_svg_attributes(color, coordinate, size)
+        fill, symbols, stroke = self._get_svg_attributes(coordinate, size, color=color)
 
         self._append_to_file(
             f"""
@@ -244,7 +244,7 @@ class SVGStitcher(Stitcher):
     def _add_key_to_svg(
         self, coordinate: "Coordinate", size: int, color: "Color"
     ) -> None:
-        fill, symbols, stroke = self._get_svg_attributes(color, coordinate, size)
+        fill, symbols, stroke = self._get_svg_attributes(coordinate, size, color)
 
         self._append_to_file(
             f"""
@@ -308,7 +308,7 @@ class SVGStitcher(Stitcher):
         )
 
     def _get_svg_attributes(
-        self, color: "Optional[Color]", coordinate: "Coordinate", size: int
+        self, coordinate: "Coordinate", size: int, color: "Optional[Color]" = None
     ) -> "SVGAttributes":
         fill = "fill:rgb(255,255,255);"
         stroke: "StrokeType" = "stroke:none;"

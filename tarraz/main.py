@@ -1,5 +1,6 @@
 import argparse
 import importlib.metadata
+import logging
 import os
 
 from tarraz import constants
@@ -14,7 +15,6 @@ VERSION = importlib.metadata.version("tarraz")
 
 def init_argparse() -> argparse.ArgumentParser:
     parser.add_argument(
-        "-v",
         "--version",
         action="version",
         version=f"{parser.prog} version {VERSION}",
@@ -59,7 +59,7 @@ def init_argparse() -> argparse.ArgumentParser:
         help="A Color to ignore from the end result.",
     )
     parser.add_argument(
-        "-s",
+        "-o",
         "--dist",
         type=str,
         default=constants.BASE_DIR / ".tmp/",
@@ -82,12 +82,21 @@ def init_argparse() -> argparse.ArgumentParser:
         action="store_true",
         help="Export result to svg files.",
     )
+    parser.add_argument(
+        "-v",
+        "--verbose",
+        action="store_true",
+        help="Show debug messages.",
+    )
     return parser
 
 
 def main() -> None:
     p = init_argparse()
     args = p.parse_args()
+
+    if args.verbose:
+        logger.setLevel(logging.DEBUG)
 
     base_file_name = os.path.basename(args.image).split(".")[0]
 

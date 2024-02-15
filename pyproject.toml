@@ -15,14 +15,14 @@ known_first_party = "tarraz"
 
 [tool.poetry]
 name = "tarraz"
-version = "1.1.2"
+version = "1.2.0"
 description = "A cross-stitch image generator. Generates a cross stitch pattern given by a user and generates a DMC colored pattern."
 authors = ["Ahmed Jazzar <ahmed@nitfe.com>"]
 maintainers = []
 
 license = "GNU Affero General Public License v3"
 readme = "README.md"
-packages = [{ include = "tarraz"}]
+packages = [{ include = "tarraz" }]
 homepage = "https://www.nitfe.com/"
 repository = "https://github.com/nitfe/tarraz.git"
 documentation = "https://github.com/nitfe/tarraz/blob/main/README.md"
@@ -47,11 +47,11 @@ Changelog = "https://github.com/nitfe/tarraz/releases"
 # Requirements
 [tool.poetry.dependencies]
 python = ">=3.8"
-pillow = "*"
+pillow = ">=9.5.0"
 
 [tool.poetry.dev-dependencies]
 pre-commit = { version = "*" }
 
 # Entry point
-[tool.poetry.scripts]
-tarraz = "tarraz.main:main"
+[tool.poetry.plugins.console_scripts]
+"tarraz" = "tarraz.main:main"

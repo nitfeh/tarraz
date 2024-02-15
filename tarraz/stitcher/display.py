@@ -1,6 +1,7 @@
 from typing import TYPE_CHECKING, Optional
 
 from PIL import Image
+
 from tarraz.stitcher import Stitcher
 
 if TYPE_CHECKING:
@@ -12,16 +13,16 @@ class DisplayStitcher(Stitcher):
         self.result = Image.new("RGB", (width, height))
 
     def draw_cell(
-        self, color: "Optional[Color]", coordinate: "Coordinate", size: int
+        self, coordinate: "Coordinate", size: int, color: "Optional[Color]" = None
     ) -> None:
         pixels = self.result.load()
 
         for i in range(coordinate.x, coordinate.x + size):
             for j in range(coordinate.y, coordinate.y + size):
-                pixels[i - size, j - size] = color.rgb
+                pixels[i - size, j - size] = color.rgb if color else (255, 255, 255, 0)
 
     def finish(self) -> None:
         self.result.show()
 
-    def save(self, dist_dir: str, ext: str) -> None:
+    def save(self, ext: str) -> None:
         return
