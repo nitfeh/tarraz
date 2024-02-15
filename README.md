@@ -75,7 +75,10 @@ SVGStitcher.stitch(
 ### Options
 ```shell
 $ tarraz --help
-usage: tarraz [-h] [--version] [-c COLORS] [-n STITCHES_COUNT] [-w WIDTH] [-m DMC] [-t TRANSPARENT [TRANSPARENT ...]] [-o DIST] [-z CELL_SIZE] [--no-cleanup] [--svg] image
+```
+
+```
+usage: tarraz [-h] [--version] [-c COLORS] [-n STITCHES_COUNT] [-w WIDTH] [-m DMC] [-t TRANSPARENT [TRANSPARENT ...]] [-o DIST] [-z CELL_SIZE] [--no-cleanup] [--svg] [-v] image
 
 Generate a DMC-colored cross-stitch pattern from a given image.
 
@@ -84,7 +87,7 @@ positional arguments:
 
 optional arguments:
   -h, --help            show this help message and exit
-  -v, --version         show program's version number and exit
+  --version             show program's version number and exit
   -c COLORS, --colors COLORS
                         Number of colors to use in the pattern.
   -n STITCHES_COUNT, --stitches-count STITCHES_COUNT
@@ -94,13 +97,13 @@ optional arguments:
   -m DMC, --dmc DMC     DMC json color path.
   -t TRANSPARENT [TRANSPARENT ...], --transparent TRANSPARENT [TRANSPARENT ...]
                         A Color to ignore from the end result.
-  -o DIST, --dist DIST  DMC json color path.
+  -o DIST, --dist DIST  Output destination directory.
   -z CELL_SIZE, --cell-size CELL_SIZE
                         The size of the generated Aida fabric cell.
   --no-cleanup          Don't run cleanup job on generated image.
   --svg                 Export result to svg files.
+  -v, --verbose         Show debug messages.
 ```
-
 
 ## Development
 ## Pre-requisites
@@ -118,11 +121,6 @@ poetry shell
 poetry install
 pre-commit install
 ```
-
-> [!NOTE]
-> If you don't want to keep the current package installed run
-> `pip uninstall tarraz`. However, you might want to add the project
-> to your `PYTHONPATH` using `export PYTHONPATH="${PYTHONPATH}:/path/to/tarraz"`
 
 ### Usage
 Continue usage as listed above
